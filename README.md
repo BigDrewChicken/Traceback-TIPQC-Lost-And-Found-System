@@ -53,3 +53,4 @@ Built on **MySQL**, the database architecture uses normalized schemas to:
 
 ---
 **Developed for the TIPQC Office of Student Affairs.**
+.
