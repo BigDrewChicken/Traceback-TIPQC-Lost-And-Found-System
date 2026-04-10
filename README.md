@@ -51,5 +51,5 @@ Built on **MySQL**, the database architecture uses normalized schemas to:
 * **Advanced Heuristic Search:** Implementing keyword-based filtering (e.g., "blue wallet", "Room 402") to improve item discoverability.
 * **Image Expansion:** Supporting multi-angle photo uploads to assist in visual verification.
 
----
+--
 **Developed for the TIPQC Office of Student Affairs.**
