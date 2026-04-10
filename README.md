@@ -47,7 +47,7 @@ Built on **MySQL**, the database architecture uses normalized schemas to:
 ## 🛠 Testing & Scalability
 * **Auth Validation:** Testing login redirects and permission-gating for OSA vs. Student views.
 * **CRUD Integrity:** Verified via mock scenarios tracking items from discovery through the 30-day expiration cycle.
-* **Future Expansion:** Potential for multi-factor authentication (MFA) and integration with the TIPQC institutional login API..
+* **Future Expansion:** Potential for multi-factor authentication (MFA) and integration with the TIPQC institutional login API.
 * **Advanced Heuristic Search:** Implementing keyword-based filtering (e.g., "blue wallet", "Room 402") to improve item discoverability.
 * **Image Expansion:** Supporting multi-angle photo uploads to assist in visual verification.
 
