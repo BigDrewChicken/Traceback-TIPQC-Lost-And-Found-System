@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceback - TIPQC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body, aside, button, h1, h2, div, input, main {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* --- DARK MODE OVERRIDES --- */
+        .dark aside { background-color: #000000 !important; border-color: #222 !important; }
+        .dark main { background-color: #0a0a0a !important; }
+        .dark h1 { color: #FACC15 !important; }
+        .dark h2 { color: #EAB308 !important; opacity: 0.9; }
+        .dark .mode-btn-text { color: #FACC15 !important; }
+        .dark .nav-btn { background-color: #000 !important; color: #FACC15 !important; border-color: #FACC15 !important; }
+        .dark .nav-btn:hover { background-color: #111 !important; }
+        .dark .login-btn { background-color: #FACC15 !important; color: #000 !important; }
+
+        /* Dark Table & Cards */
+        .dark .dark-card { background-color: #000 !important; border-color: #333 !important; }
+        .dark table { color: #FACC15 !important; }
+        .dark thead { background-color: #FACC15 !important; color: #000 !important; }
+        .dark tbody tr { border-color: #222 !important; }
+        .dark tbody tr:hover { background-color: #111 !important; }
+
+        /* Modal in Dark Mode */
+        .dark #modalContent { background-color: #111 !important; border-color: #FACC15 !important; color: #FACC15 !important; }
+        .dark #modalContent input { background-color: #000 !important; border-color: #333 !important; color: #FACC15 !important; }
+    </style>
+</head>
+<body class="bg-gray-100 flex h-screen overflow-hidden">
+
+    <aside class="bg-white w-72 flex flex-col p-6 text-gray-900 border-r border-gray-200 shadow-xl z-10">
+        <div class="mb-10 flex flex-col items-start">
+            <div class="w-32 h-32 mb-4 overflow-hidden">
+                <img src="imgs/final_logo.png" alt="Logo" class="w-full h-full object-contain object-left">
+            </div>
+            <h1 class="text-3xl font-black tracking-tighter leading-tight text-black">Traceback</h1>
+            <h2 class="text-sm font-semibold text-gray-500 italic mt-1">TIPQC Lost and Found</h2>
+        </div>
+
+        <nav class="flex-grow space-y-4">
+            <button onclick="renderTable('Current')" class="nav-btn w-full text-left px-4 py-3 rounded-lg border-2 border-yellow-400 bg-white text-black font-bold hover:bg-yellow-50 transition-all shadow-sm">
+                Current Items
+            </button>
+            <button onclick="renderTable('Found')" class="nav-btn w-full text-left px-4 py-3 rounded-lg border-2 border-yellow-400 bg-white text-black font-bold hover:bg-yellow-50 transition-all shadow-sm">
+                Found Items
+            </button>
+            <button onclick="renderTable('Discarded')" class="nav-btn w-full text-left px-4 py-3 rounded-lg border-2 border-yellow-400 bg-white text-black font-bold hover:bg-yellow-50 transition-all shadow-sm">
+                Discarded Items
+            </button>
+        </nav>
+
+        <div class="mt-auto pt-6 border-t border-gray-100 flex flex-col gap-3">
+            <button onclick="toggleDarkMode()" class="mode-btn-text flex items-center gap-3 px-4 py-2 font-semibold text-gray-700 hover:text-black transition-colors">
+                <i id="modeIcon" class="fas fa-moon"></i> 
+                <span id="modeText">Dark Mode</span>
+            </button>
+            <button onclick="toggleModal()" class="login-btn w-full bg-black text-white font-black py-4 rounded-lg shadow-lg hover:bg-gray-800 transition-all active:scale-95 uppercase tracking-widest text-sm">
+                LOGIN
+            </button>
+        </div>
+    </aside>
+
+    <main id="main-content" class="flex-grow p-10 overflow-y-auto bg-slate-50 relative">
+        <div class="absolute inset-0 flex items-center justify-center text-gray-400 italic text-xl font-medium">
+            Please select an option from the sidebar to view contents.
+        </div>
+    </main>
+
+    <div id="loginModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div id="modalContent" class="bg-white p-8 rounded-2xl shadow-2xl w-96 border-4 border-yellow-400">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-black">LOGIN</h3>
+                <button onclick="toggleModal()" class="hover:opacity-70 text-xl"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="space-y-4">
+                <input type="text" id="username" placeholder="Type 'Admin'" class="w-full border-2 border-gray-200 rounded-lg p-3 outline-none focus:border-yellow-400">
+                <input type="password" id="password" class="w-full border-2 border-gray-200 rounded-lg p-3 outline-none focus:border-yellow-400">
+                <button onclick="handleLogin()" class="login-btn w-full bg-black text-white font-bold py-3 rounded-lg hover:opacity-90 transition-all">ENTER</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
