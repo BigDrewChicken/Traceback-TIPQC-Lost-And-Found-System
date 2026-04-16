@@ -66,12 +66,28 @@ Built on **MySQL**, the database architecture uses normalized schemas to:
 ## 💻 Developer Team
 ```
 const developerTeam = [
-  { name: "Ross Andrew Bulaong", profile: "" },
-  { name: "Anthony Losaria", profile: "" },
-  { name: "Borge Momo", profile: "" },
-  { name: "Joshua Paul Pios", profile: "" },
-  { name: "Jamie Rose Kia Reyes", profile: "" }
+  {
+    name: "Ross Andrew Bulaong",
+    profile: "https://github.com/BigDrewChicken"
+  },
+  {
+    name: "Anthony Losaria",
+    profile: "https://github.com/AntonLosaria"
+  },
+  {
+    name: "Borge Momo",
+    profile: "https://github.com/rudolfed"
+  },
+  {
+    name: "Joshua Paul Pios",
+    profile: "https://github.com/piosjoshua"
+  },
+  {
+    name: "Jamie Rose Kia Reyes",
+    profile: "https://github.com/jamierosereyes"
+  }
 ];
+
 ```
 
 ## 😁 Fun Fact
