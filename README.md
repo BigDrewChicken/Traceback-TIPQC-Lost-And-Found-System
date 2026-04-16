@@ -107,6 +107,26 @@ In a real lost-and-found system, every item also has a “history trail”:
 So just like a programming traceback reveals the origin of a bug, our system Traceback reveals the full journey of an item—from discovery to resolution.
 
 ```
+
+## 📷 Demo Images
+<div align="center">
+  <img src="imgs/project-demo/Actions.png" alt="Actions">
+</div>
+<div align="center">
+  <img src="imgs/project-demo/Dark.png" alt="Dark">
+</div>
+
+<div align="center">
+  <img src="imgs/project-demo/Login.png" alt="Login" width="46%" />
+  <img src="imgs/project-demo/AddItem.png" alt="AddItem" width="45%" />
+</div>
+
+
+
 ---
-**Developed for the TIPQC Office of Student Affairs.**
+
+<div align='center'
+  <p><i> Developed for the Developer Team's CPE011-A Database Management System course final project. </i></p>
+</div>
+
 
