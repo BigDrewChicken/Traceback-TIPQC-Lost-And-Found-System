@@ -58,11 +58,39 @@ Built on **MySQL**, the database architecture uses normalized schemas to:
 
 ## 🛠 Testing & Future-Scalability
 * **Auth Validation:** Testing login redirects and permission-gating for OSA vs. Student views. An OSA Admin account has the only permission to create, update, and delete records.
-* **CRUD Integrity:** Verified via mock scenarios tracking items from discovery through the 30-day expiration cycle.
+* **CRUD Integrity:** Verified via mock scenarios tracking items from discovery through the item life cycle.
 * **Future Expansion:** Potential for multi-factor authentication (MFA) and integration with the TIPQC institutional login API.
 * **Advanced Heuristic Search:** Implementing keyword-based filtering (e.g., "blue wallet", "Room 402") to improve item discoverability.
 * **Image Expansion:** Supporting multi-angle photo uploads to assist in visual verification.
 
+## 💻 Developer Team
+```
+const developerTeam = [
+  { name: "Ross Andrew Bulaong", profile: "" },
+  { name: "Anthony Losaria", profile: "" },
+  { name: "Borge Momo", profile: "" },
+  { name: "Joshua Paul Pios", profile: "" },
+  { name: "Jamie Rose Kia Reyes", profile: "" }
+];
+```
+
+## 😁 Fun Fact
+```
+The name Traceback comes from a core concept in programming.
+
+In coding, a "traceback" is the error report you see when something goes wrong. It “traces back” through the sequence of function calls that led to the error, showing where the issue started and how it propagated.
+
+We borrowed this idea for the system’s identity:
+
+In a real lost-and-found system, every item also has a “history trail”:
+
+> Where was it found?
+> Who handled it?
+> When was it claimed or discarded?
+
+So just like a programming traceback reveals the origin of a bug, our system Traceback reveals the full journey of an item—from discovery to resolution.
+
+```
 ---
 **Developed for the TIPQC Office of Student Affairs.**
 
