@@ -114,7 +114,7 @@ app.post("/api/items/add", async (req, res) => {
     } catch (err) {
         console.error("ADD ITEM ERROR:", err);
         res.status(500).json({
-            error: "Failed to add item",
+            error: "Failed to add item, either student ID or location is not in database.",
             details: err.message
         });
     }
@@ -194,15 +194,35 @@ app.post("/api/items/found/:id", async (req, res) => {
     try {
         await conn.beginTransaction();
 
+        // =====================
+        // 1. Check if item exists
+        // =====================
         const [rows] = await conn.query(
             "SELECT * FROM current_items WHERE Item_ID_PK = ?",
             [id]
         );
 
-        if (!rows.length) throw new Error("Item not found");
+        if (!rows.length) {
+            throw new Error("Item not found");
+        }
 
         const item = rows[0];
 
+        // =====================
+        // 2. Validate student ID
+        // =====================
+        const [student] = await conn.query(
+            "SELECT 1 FROM student WHERE Student_ID_PK = ?",
+            [student_id]
+        );
+
+        if (!student.length) {
+            throw new Error("Invalid student ID");
+        }
+
+        // =====================
+        // 3. Insert into claimed_items
+        // =====================
         await conn.query(
             `INSERT INTO claimed_items
             (Student_ID_FK, Received_Time, Item_ID_FK, Item_Name, Item_Desc, Location_ID_FK, Category_Name)
@@ -217,6 +237,9 @@ app.post("/api/items/found/:id", async (req, res) => {
             ]
         );
 
+        // =====================
+        // 4. Remove from current_items
+        // =====================
         await conn.query(
             "DELETE FROM current_items WHERE Item_ID_PK = ?",
             [id]
@@ -229,8 +252,13 @@ app.post("/api/items/found/:id", async (req, res) => {
 
     } catch (err) {
         await conn.rollback();
+
         console.error("🔥 FOUND ERROR:", err);
-        res.status(500).json({ error: err.message });
+
+        res.status(400).json({
+            success: false,
+            error: err.message
+        });
 
     } finally {
         conn.release();
